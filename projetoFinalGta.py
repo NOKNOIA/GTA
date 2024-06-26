@@ -5,6 +5,25 @@ from tkinter import simpledialog
 
 pygame.init()
 
+relogio = pygame.time.Clock()
+icone  = pygame.image.load("recursos/icone.png")
+iron = pygame.image.load("recursos/iron.png")
+fundo = pygame.image.load("recursos/fundo.png")
+fundoStart = pygame.image.load("recursos/fundoStart.png")
+fundoDead = pygame.image.load("recursos/fundoDead.png")
+missel2 = pygame.image.load("recursos/missile2.png")
+missel = pygame.image.load("recursos/missile.png")
+cachorro = pygame.image.load("recursos/cachorro.png")
+tamanho = (900,538)
+tela = pygame.display.set_mode( tamanho ) 
+pygame.display.set_caption("Iron Man do Marcão")
+pygame.display.set_icon(icone)
+missileSound = pygame.mixer.Sound("recursos/missile.wav")
+explosaoSound = pygame.mixer.Sound("recursos/explosao.wav")
+fonte = pygame.font.SysFont("comicsans",28)
+fonteStart = pygame.font.SysFont("comicsans",55)
+fonteMorte = pygame.font.SysFont("arial",120)
+pygame.mixer.music.load("recursos/ironsound.mp3")
 
 branco = (255,255,255)
 preto = (0, 0 ,0 )
@@ -221,7 +240,7 @@ def start():
                 if buttonStart.collidepoint(evento.pos):
                     jogar(nome)
                 elif buttonRanking.collidepoint(evento.pos):
-                    ()
+                    ranking()
 
         tela.fill(branco)
         tela.blit(fundoStart, (0,0))
@@ -236,5 +255,6 @@ def start():
         
         pygame.display.update()
         relogio.tick(60)
+
 
 start()
